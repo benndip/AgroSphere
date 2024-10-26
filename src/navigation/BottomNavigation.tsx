@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 // import {
 //   BottomTabBarProps,
 //   BottomTabNavigationOptions,
@@ -14,27 +14,29 @@ import { paths } from "./paths";
 import HomeStack from "./stacks/HomeStack";
 import InspectStack from "./stacks/InspectStack";
 import { Home } from "../screens";
-import { DEVICE_HEIGHT, DEVICE_WIDTH } from '../constants/sizes';
-import { colors } from '../constants/colors';
+import { DEVICE_HEIGHT, DEVICE_WIDTH } from "../constants/sizes";
+import { colors } from "../constants/colors";
+import InventoryStack from "./stacks/InventoryStack";
+import ProfileStack from "./stacks/ProfileStack";
 
 const Tab = AnimatedTabBarNavigator();
 
 const BottomNavigation = () => {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false }}
+      screenOptions={(props) => ({ headerShown: false })}
       appearance={{
         whenActiveShow: TabElementDisplayOptions.ICON_ONLY,
         floating: true,
-        tabBarBackground: colors.PRIMARY_GREEN_COLOR,
+        tabBarBackground: colors.PRIMARY_GREEN,
         dotSize: DotSize.SMALL,
         shadow: true,
       }}
       tabBarOptions={{
-        activeTintColor: colors.PRIMARY_GREEN_COLOR,
+        activeTintColor: colors.PRIMARY_GREEN,
         inactiveTintColor: "#fff",
         // inactiveTintColor: GREY,
-        activeBackgroundColor: '#fff',
+        activeBackgroundColor: "#fff",
         tabStyle: {
           justifyContent: "center",
           height: DEVICE_HEIGHT * 0.09,
@@ -60,17 +62,32 @@ const BottomNavigation = () => {
           tabBarIcon: ({ size, color, ...props }: any) => (
             <Ionicons name="search" size={size} color={color} {...props} />
           ),
-          title: "Home",
+          title: "Inspect",
         }}
       />
       <Tab.Screen
-        name={paths.HOME}
-        component={Home}
+        name={paths.INVENTORYSTACK}
+        component={InventoryStack}
         options={{
           tabBarIcon: ({ size, color, ...props }: any) => (
-            <Ionicons name="search" size={size} color={color} {...props} />
+            <MaterialIcons
+              name="auto-graph"
+              size={size}
+              color={color}
+              {...props}
+            />
           ),
-          title: "Home",
+          title: "Inventory",
+        }}
+      />
+      <Tab.Screen
+        name={paths.PROFILESTACK}
+        component={ProfileStack}
+        options={{
+          tabBarIcon: ({ size, color, ...props }: any) => (
+            <Ionicons name="person" size={size} color={color} {...props} />
+          ),
+          title: "Profile",
         }}
       />
     </Tab.Navigator>

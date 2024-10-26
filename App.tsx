@@ -4,18 +4,21 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import store, { persistor } from "./src/redux/store";
-import { PersistGate } from 'redux-persist/integration/react';
-import MainNavigation from './src/navigation/MainNavigation';
-import { NativeBaseProvider} from "native-base";
+import { PersistGate } from "redux-persist/integration/react";
+import MainNavigation from "./src/navigation/MainNavigation";
+import { NativeBaseProvider } from "native-base";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <StatusBar translucent />
-        <NativeBaseProvider>
-          <MainNavigation />
-        </NativeBaseProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <NativeBaseProvider>
+            <MainNavigation />
+          </NativeBaseProvider>
+        </GestureHandlerRootView>
       </PersistGate>
     </Provider>
   );

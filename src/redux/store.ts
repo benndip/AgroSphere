@@ -1,17 +1,17 @@
 /* eslint-disable no-duplicate-imports */
-import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from './rootReducer';
-import { useDispatch, useSelector } from 'react-redux';
-import type { TypedUseSelectorHook } from 'react-redux';
-import { persistStore, persistReducer } from 'redux-persist';
-import { setupListeners } from '@reduxjs/toolkit/query';
-import { apiSlice } from './api';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./rootReducer";
+import { useDispatch, useSelector } from "react-redux";
+import type { TypedUseSelectorHook } from "react-redux";
+import { persistStore, persistReducer } from "redux-persist";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { apiSlice } from "./api";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage: AsyncStorage,
-  whitelist: ['auth', ],
+  whitelist: ["auth", "farm"],
 };
 
 const persistedReducer = persistReducer<any>(persistConfig, rootReducer);

@@ -9,4 +9,11 @@ export const paths = {
   INSPECT: "Inspect",
   INSPECTSTACK: "InspectStack",
   AUTHSTACK: "AuthStack",
+  DETAILS: 'Details',
+  INVENTORY: 'Inventory',
+  INVENTORYSTACK: 'InventoryStack',
+  PROFILE: 'Profile',
+  PROFILESTACK: 'ProfileStack',
+  SEARCH: 'Search',
+  CREATEFARM: 'CreateFarm',
 } as const;
