@@ -1,11 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import { Home } from "../../screens";
+import { CreateFarm, Details, Home, Search } from "../../screens";
 import { paths } from "../paths";
 import { HomeStackParamList } from "../types";
 import { Text, TouchableOpacity, View } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
-import { colors } from '../../constants/colors';
+import { Ionicons } from "@expo/vector-icons";
+import { colors } from "../../constants/colors";
+import { customNavHeader } from '../navOptions';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
@@ -33,7 +34,7 @@ const HomeStack = () => {
             <Ionicons
               name="notifications"
               size={26}
-              color={colors.PRIMARY_GREEN_COLOR}
+              color={colors.PRIMARY_GREEN}
             />
           </TouchableOpacity>
         ),
@@ -43,6 +44,30 @@ const HomeStack = () => {
       // initialRouteName={paths.DEPOSITSUMMARY}
     >
       <Stack.Screen name={paths.HOME} component={Home} />
+      <Stack.Screen
+        name={paths.DETAILS}
+        component={Details}
+        options={({ navigation, route }) => ({
+          ...customNavHeader(navigation),
+          title: route.params?.name || '',
+        })}
+      />
+      <Stack.Screen
+        name={paths.SEARCH}
+        component={Search}
+        options={({ navigation, route }) => ({
+          ...customNavHeader(navigation),
+          title: 'Search',
+        })}
+      />
+      <Stack.Screen
+        name={paths.CREATEFARM}
+        component={CreateFarm}
+        options={({ navigation, route }) => ({
+          ...customNavHeader(navigation),
+          title: 'Create Farm',
+        })}
+      />
     </Stack.Navigator>
   );
 };

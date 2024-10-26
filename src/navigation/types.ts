@@ -10,6 +10,9 @@ export type RootStackParamList = {
 
 export type HomeStackParamList = {
   Home: undefined;
+  Details: { name: string };
+  Search: undefined;
+  CreateFarm: undefined;
 };
 export type AuthStackParamList = {
   Signup: undefined;

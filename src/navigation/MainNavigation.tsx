@@ -42,7 +42,7 @@ const MainNavigation = () => {
           headerShown: false,
           animation: "slide_from_right",
         }}
-        initialRouteName={paths.ONBOARDING}
+        initialRouteName={paths.BOTTOMNAVIGATION}
       >
         <Stack.Screen name={paths.SPLASH} component={Splash} />
         <Stack.Screen name={paths.AUTHSTACK} component={AuthStack} />

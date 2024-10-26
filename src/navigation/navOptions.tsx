@@ -12,7 +12,7 @@ export const customNavHeader = (navigation: any) => {
     headerShown: true,
     headerShadowVisible: false,
     headerStyle: {
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
     },
     headerLeft: (props: any) => (
       <TouchableOpacity
@@ -29,14 +29,17 @@ export const customNavHeader = (navigation: any) => {
     headerRight: (props: any) => (
       <TouchableOpacity
         style={{
-          justifyContent:'center'
+          justifyContent: "center",
         }}
         className=""
         onPress={() => navigation.goBack()}
       >
         <View className="w-2 h-2 z-10 rounded bg-red-400 absolute right-2 top-0" />
-        <Ionicons name="notifications" size={26} color={colors.PRIMARY_GREEN_COLOR} />
+        <Ionicons name="notifications" size={26} color={colors.PRIMARY_GREEN} />
       </TouchableOpacity>
     ),
+    headerTitleStyle: {
+      color: "#383838",
+    },
   };
 };
